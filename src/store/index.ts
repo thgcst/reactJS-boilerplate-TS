@@ -2,6 +2,7 @@ import { createStore, applyMiddleware, compose } from 'redux';
 import createSagaMiddleware from 'redux-saga';
 import { routerMiddleware } from 'connected-react-router';
 import { persistStore, persistReducer } from 'redux-persist';
+import { loadingBarMiddleware } from 'react-redux-loading-bar';
 
 import Reactotron from '~/config/ReactotronConfig';
 import history from '~/routes/history';
@@ -13,7 +14,13 @@ const sagaMiddleware = createSagaMiddleware({
   sagaMonitor: Reactotron.createSagaMonitor!(),
 });
 
-const middlewares = [sagaMiddleware, routerMiddleware(history)];
+const middlewares = [
+  sagaMiddleware,
+  routerMiddleware(history),
+  loadingBarMiddleware({
+    promiseTypeSuffixes: ['REQUEST', 'SUCCESS', 'FAILURE'],
+  }),
+];
 
 const persistedReducer = persistReducer(persistConfig, rootReducer);
 
