@@ -35,12 +35,24 @@ export const Card = styled.div`
   transition: 300ms ease;
 `;
 
+export const WrapperTop = styled.div`
+  display: flex;
+  align-items: center;
+  margin-bottom: 3rem;
+`;
+
+export const Avatar = styled.img`
+  width: 4rem;
+  height: 4rem;
+  border-radius: 2rem;
+  margin-right: 2rem;
+`;
+
 export const Title = styled.div`
   font-size: 4rem;
   font-weight: 700;
   color: ${({ theme }) => theme.colors.white};
   text-shadow: 0 0 1rem 0 rgba(0, 0, 0, 0.2);
-  margin-bottom: 3rem;
 `;
 
 export const Text = styled.p`

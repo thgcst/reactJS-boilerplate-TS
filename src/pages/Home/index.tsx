@@ -3,7 +3,15 @@ import { useDispatch, useSelector } from 'react-redux';
 import AuthActions from '~/store/ducks/auth/actions';
 import { RootState } from '~/store/ducks/rootReducer';
 
-import { Container, Card, Title, Text, WrapperExit } from './styles';
+import {
+  Container,
+  Card,
+  WrapperTop,
+  Avatar,
+  Title,
+  Text,
+  WrapperExit,
+} from './styles';
 
 export const ExitIcon: React.FC = () => (
   <svg
@@ -39,7 +47,10 @@ const Home: React.FC = () => {
         <ExitIcon />
       </WrapperExit>
       <Card>
-        <Title>{userData.name}</Title>
+        <WrapperTop>
+          <Avatar src={userData.avatar_url} />
+          <Title>{userData.name}</Title>
+        </WrapperTop>
         {data.map(item => (
           <Text>
             <b>{item[0]}</b>: {item[1]}

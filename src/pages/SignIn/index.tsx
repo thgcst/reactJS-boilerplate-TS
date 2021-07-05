@@ -8,10 +8,10 @@ import { Container, Card, Title, Input } from './styles';
 
 const SignIn: React.FC = () => {
   const dispatch = useDispatch();
-  const { handleChange, values, handleSubmit } = useFormik({
+  const { setFieldValue, values, handleSubmit } = useFormik({
     initialValues: { username: '' },
     onSubmit: e => {
-      dispatch(AuthActions.signInRequest(e.username));
+      dispatch(AuthActions.signInRequest(e.username.replace('@', '')));
     },
   });
 
@@ -19,15 +19,19 @@ const SignIn: React.FC = () => {
     <Container>
       <Card>
         <Title>Buscar no GitHub</Title>
+
         <Input
-          value={values.username}
+          value={values.username === '@' ? '' : values.username}
           name="username"
-          onChange={handleChange}
+          onChange={e =>
+            setFieldValue('username', `@${e.target.value.replace('@', '')}`)
+          }
           onKeyUp={e => {
             if (e.code === 'Enter') {
               handleSubmit();
             }
           }}
+          placeholder="Insira o username"
         />
       </Card>
     </Container>
