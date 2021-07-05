@@ -23,7 +23,7 @@ export default createGlobalStyle`
     height: 100vh;
     text-rendering: optimizelegibility;
     -webkit-font-smoothing: antialiased;
-    background-color: ${({ theme }) => theme.colors.error};
+    background-color: ${({ theme }) => theme.colors.white};
     font-family: ${({ theme }) => theme.fonts.OpenSans};
   }
 
