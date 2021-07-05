@@ -27,6 +27,8 @@
       "prettier/prettier": "error",
 			"react-hooks/rules-of-hooks": "error",
 	    "react-hooks/exhaustive-deps": "warn",
+      "no-shadow": "off",
+      "camelcase": "off",
 	    "react/jsx-filename-extension": [
 	      1,
 	      {
@@ -47,11 +49,19 @@
 	    "@typescript-eslint/no-use-before-define": [
 	      "error"
 	    ],
-	    "react/react-in-jsx-scope": "off"
+      "@typescript-eslint/explicit-module-boundary-types": "off",
+	    "react/react-in-jsx-scope": "off",
+      "react/prop-types": "off",
+      "react/jsx-props-no-spreading": "off",
+      "import/prefer-default-export": "off"
     },
     "settings": {
       "import/resolver": {
-        "typescript": {}
+        "typescript": {},
+        "babel-plugin-root-import": {
+          "rootPathPrefix": "~",
+          "rootPathSuffix": "src"
+        }
       }
     }
 }
